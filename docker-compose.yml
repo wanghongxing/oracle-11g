@@ -1,0 +1,17 @@
+version: '3'
+services:
+  oracle:
+    image: oracle-11g
+    build: ./
+    restart: always
+    environment:
+      - ORACLE_SID=ORCL
+      - ORACLE_PDB=whx
+      - ORACLE_PWD=whxheart
+    volumes:
+      - ./database:/install
+      -./orcdata:/opt/oracle
+    ports:
+       - "1522:1521"
+       - "5500:5500"
+
